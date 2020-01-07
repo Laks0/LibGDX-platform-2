@@ -63,7 +63,7 @@ public class GameScreen extends AbstractScreen {
 
 	@Override
 	public void dispose() {
-		player.dispose();
+		//player.dispose();
 		System.out.println("Game disposed");
 	}
 	

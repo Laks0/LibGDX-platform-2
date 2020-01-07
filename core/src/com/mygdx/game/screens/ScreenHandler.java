@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class ScreenHandler {
 	private static Game game;
+	private static AbstractScreen current;
 	
 	public static void setGame(Game g) {
 		game = g;
@@ -14,5 +15,9 @@ public class ScreenHandler {
 		AbstractScreen screen = type.getScreen();
 		screen.load(batch, params);
 		game.setScreen(screen);
+		if (current != null) {
+			current.dispose();
+		}
+		current = screen;
 	}
 }
