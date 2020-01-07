@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public enum TileType {
 	GRASS(1, true, "Grass"),
-	LAVA(2, true, "Lava"),
+	DOOR(2, false, "Door"),
 	SKY(3, false, "Sky"),
 	CLOUD(4, false, "Cloud");
 	

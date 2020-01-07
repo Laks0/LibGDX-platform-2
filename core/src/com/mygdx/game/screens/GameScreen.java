@@ -22,7 +22,7 @@ public class GameScreen extends AbstractScreen {
 	@Override
 	public void show() {
 		System.out.println("Showing game at level " + level);
-		player = new Player(100, 500);
+		player = new Player(100, 500, level, batch);
 		
 		map = new TiledGameMap("map.tmx");
 		
@@ -33,11 +33,11 @@ public class GameScreen extends AbstractScreen {
 	@Override
 	public void render(float delta) {
 		player.update(delta, map);
-
+		
 		map.render(camera);
 		
 		batch.begin();
-		player.render(batch);
+		player.render();
 		batch.end();
 	}
 

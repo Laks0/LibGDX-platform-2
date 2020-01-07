@@ -151,7 +151,7 @@ public abstract class Entity {
 		grounded = false;
 	}
 	
-	public abstract void render(SpriteBatch batch);
+	public abstract void render();
 	
 	/* GETTERS AND SETTERS */
 		
