@@ -3,28 +3,27 @@ package com.mygdx.game.screens;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.mygdx.game.entities.Player;
+import com.mygdx.game.levels.LevelHandler;
+import com.mygdx.game.levels.Levels;
 
 import world.GameMap;
-import world.TiledGameMap;
 
 public class GameScreen extends AbstractScreen {
-	private int level;
-	
+	private Levels level;
 	private Player player;
 	private GameMap map;
 	private OrthographicCamera camera;
 	
 	public void load(SpriteBatch batch, Object ... params) {
 		super.load(batch);
-		level = (int) params[0];
+		level = LevelHandler.getLevel((int) params[0]);
 	}
 
 	@Override
 	public void show() {
-		System.out.println("Showing game at level " + level);
-		player = new Player(100, 500, level, batch);
+		player = new Player(level.getPlayerPosition().x, level.getPlayerPosition().y, level.getN(), batch);
 		
-		map = new TiledGameMap("map.tmx");
+		map = level.getMap();
 		
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false);
@@ -64,7 +63,7 @@ public class GameScreen extends AbstractScreen {
 	@Override
 	public void dispose() {
 		//player.dispose();
-		System.out.println("Game disposed");
+		//map.dispose();
 	}
 	
 }

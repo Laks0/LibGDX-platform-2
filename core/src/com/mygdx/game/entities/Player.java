@@ -39,15 +39,15 @@ public class Player extends Entity {
 			moveX(1, dt);
 		}
 		
+		super.update(dt, map);
+		
 		// Doors
 		TileType currentTile = map.getTileByPosition(1, pos.x, pos.y);
 		if (currentTile != null) {
-			if (currentTile.getName() == "Door") {
+			if (currentTile == TileType.DOOR) {
 				ScreenHandler.setScreen(ScreenType.GAME, batch, level + 1);
 			}
 		}
-		
-		super.update(dt, map);
 	}
 	
 	@Override
