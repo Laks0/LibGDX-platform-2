@@ -7,7 +7,8 @@ import world.TiledGameMap;
 
 public enum Levels {
 	ONE(0, new TiledGameMap("map.tmx"), new Vector2(32, 80)),
-	TWO(1, new TiledGameMap("level2.tmx"), new Vector2(32,80));
+	TWO(1, new TiledGameMap("level2.tmx"), new Vector2(32, 80)),
+	THREE(2, new TiledGameMap("level3.tmx"), new Vector2(32, 80));
 	
 	private GameMap map;
 	private Vector2 playerPosition;

@@ -51,8 +51,7 @@ public class TiledGameMap extends GameMap {
 
 	@Override
 	public int getWidth() {
-		
-		return 0;
+		return (int) tiledMap.getProperties().get("width");
 	}
 
 	@Override

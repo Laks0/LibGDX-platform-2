@@ -6,6 +6,7 @@ public class LevelHandler {
 	static {
 		levels[0] = Levels.ONE;
 		levels[1] = Levels.TWO;
+		levels[2] = Levels.THREE;
 	}
 	
 	public static Levels getLevel(int i) {

@@ -29,7 +29,7 @@ public class Player extends Entity {
 		if (grounded && Gdx.input.isKeyPressed(Keys.SPACE)) {
 			jump();
 		} else if (!grounded && vel.y > 0 && Gdx.input.isKeyPressed(Keys.SPACE)) {
-			jump(1.9f*dt);
+			jump(1.5f*dt);
 		}
 		
 		if (Gdx.input.isKeyPressed(Keys.A)) {
@@ -48,6 +48,11 @@ public class Player extends Entity {
 				ScreenHandler.setScreen(ScreenType.GAME, batch, level + 1);
 			}
 		}
+		
+		int mapWidth = map.getWidth() * TileType.TILE_SIZE;
+		if (pos.x > mapWidth || pos.x + width < 0 || pos.y + height < 0) {
+			die();
+		}
 	}
 	
 	@Override
@@ -57,6 +62,10 @@ public class Player extends Entity {
 	
 	public void dispose() {
 		sprite.dispose();
+	}
+	
+	public void die() {
+		ScreenHandler.setScreen(ScreenType.GAME, batch, level);
 	}
 
 }
