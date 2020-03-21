@@ -8,7 +8,7 @@ public class BasicEnemy extends Enemy {
 	private int direction;
 	
 	public BasicEnemy(Vector2 pos) {
-		super(pos, 500f, 200f, "basicEnemy.png");
+		super(pos, 500f, 100f, "basicEnemy.png");
 		
 		direction = 1;
 	}
@@ -18,8 +18,17 @@ public class BasicEnemy extends Enemy {
 		
 		moveX(direction, dt);
 		
-		if (isCollidingX(new Vector2(pos.x + vel.x * dt, pos.y), direction, map)) {
+		if (isCollidingX(pos.add(vel.x * dt, 0), direction, map)) {
 			direction *= -1;
+		}
+		
+		if (collidesWith(player)) {
+			if (player.isGrounded()) {
+				player.die();
+			} else {
+				player.jump(2f);
+				setDead(true);
+			}
 		}
 	}
 

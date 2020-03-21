@@ -49,7 +49,7 @@ public abstract class Entity {
 	
 	protected void applyVelocity(float dt, GameMap map) {
 		vel.x = MathUtils.clamp(vel.x, -maxSpeed, maxSpeed);
-		vel.y = MathUtils.clamp(vel.y, -maxSpeed, maxJumpSpeed);
+		vel.y = MathUtils.clamp(vel.y, -maxSpeed, maxJumpSpeed*2);
 		
 		// Slow down
 		if (dir == 0) {

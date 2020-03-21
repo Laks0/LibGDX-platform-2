@@ -12,8 +12,9 @@ public enum Levels {
 	TWO(1, new TiledGameMap("level2.tmx"), new Vector2(32, 80)),
 	THREE(2, new TiledGameMap("level3.tmx"), new Vector2(32, 80)),
 	FOUR(3, new TiledGameMap("level4.tmx"), new Vector2(32, 600), new Enemy[]{
-			new BasicEnemy(new Vector2(200, 432)),
-			new BasicEnemy(new Vector2(500,300))
+			new BasicEnemy(new Vector2(200, 400)),
+			new BasicEnemy(new Vector2(500, 250)),
+			new BasicEnemy(new Vector2(650, 250))
 	});
 	
 	private GameMap map;

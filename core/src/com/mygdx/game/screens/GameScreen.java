@@ -53,7 +53,8 @@ public class GameScreen extends AbstractScreen {
 		player.update(delta, map);
 		
 		for (Enemy e : enemies) {
-			e.update(player, delta, map);
+			if (!e.isDead())
+				e.update(player, delta, map);
 		}
 		
 		map.render(camera);
@@ -62,7 +63,8 @@ public class GameScreen extends AbstractScreen {
 		player.render();
 		
 		for (Enemy e : enemies) {
-			e.render(batch);
+			if (!e.isDead())
+				e.render(batch);
 		}
 		
 		batch.end();
