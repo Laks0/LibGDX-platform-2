@@ -140,6 +140,18 @@ public abstract class Entity {
 		return col;
 	}
 	
+	protected boolean collidesWith(Entity e) {
+		Vector2 epos = e.getPos();
+		Vector2 esize = e.getSize();
+		
+		return collidesWith(epos, esize);
+	}
+	
+	protected boolean collidesWith(Vector2 epos, Vector2 esize) {
+		return (pos.x + width > epos.x) && (pos.x < epos.x + esize.x)
+				&& (pos.y + height > epos.y) && (pos.y < epos.y + esize.y);
+	}
+
 	public void jump(float amount) {
 		vel.y += maxJumpSpeed * amount;
 		grounded = false;
@@ -192,6 +204,15 @@ public abstract class Entity {
 
 	public void setHeight(int height) {
 		this.height = height;
+	}
+	
+	public Vector2 getSize() {
+		return new Vector2(this.width, this.height);
+	}
+	
+	public void setSize(Vector2 size) {
+		this.width = (int) size.x;
+		this.height = (int) size.y;
 	}
 
 	public Vector2 getVel() {

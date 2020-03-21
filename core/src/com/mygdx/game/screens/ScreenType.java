@@ -1,7 +1,8 @@
 package com.mygdx.game.screens;
 
 public enum ScreenType {
-	GAME(new GameScreen());
+	GAME(new GameScreen()),
+	MAIN_MENU(new MainMenuScreen());
 	
 	private AbstractScreen screen;
 

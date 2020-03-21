@@ -13,7 +13,7 @@ public class Test extends Game implements ApplicationListener {
 	public void create () {
 		batch = new SpriteBatch();
 		ScreenHandler.setGame(this);
-		ScreenHandler.setScreen(ScreenType.GAME, batch, 2);
+		ScreenHandler.setScreen(ScreenType.MAIN_MENU, batch);
 	}
 
 	@Override
